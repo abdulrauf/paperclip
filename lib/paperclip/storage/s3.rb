@@ -284,7 +284,7 @@ module Paperclip
             }
             write_options[:metadata] = @s3_metadata unless @s3_metadata.empty?
             unless @s3_server_side_encryption.blank?
-              write_options[:server_side_encryption] = @s3_server_side_encryption
+              write_options[:server_side_encryption] = @s3_server_side_encryption.to_s
             end
             write_options.merge!(@s3_headers)
             s3_object(style).write(file, write_options)
